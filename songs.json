@@ -1,3 +1,5 @@
+// JSON document
+
 [
 	{
 		"Title": "Ice Cream",
@@ -32,43 +34,43 @@
 	{
 		"Title": "Be My Mistake",
 		"Artist": "The 1975",
-		"Genre": "Pop rock",
+		"Genre": ["Pop rock"],
 		"Year": "2018"
 	},
 	{
 		"Title": "Somebody Else",
 		"Artist": "The 1975",
-		"Genre": "Pop rock",
+		"Genre": ["Pop rock"],
 		"Year": "2016"
 	},
 	{
 		"Title": "my future",
 		"Artist": "Billie Eilish",
-		"Genre": "Indie pop",
+		"Genre": ["Indie pop"],
 		"Year": "2020"
 	},
 	{
 		"Title": "bad guy",
 		"Artist": "Billie Eilish",
-		"Genre": "Indie pop",
+		"Genre": ["Indie pop"],
 		"Year": "2019"
 	},
 	{
 		"Title": "listen before I go",
 		"Artist": "Billie Eilish",
-		"Genre": "Indie pop",
+		"Genre": ["Indie pop"],
 		"Year": "2019"
 	},
 	{
 		"Title": "Lily",
 		"Artist": "Alan Walker",
-		"Genre": "EDM",
+		"Genre": ["EDM"],
 		"Year": "2018"
 	},
 	{
 		"Title": "Faded",
 		"Artist": "Alan Walker",
-		"Genre": "EDM",
+		"Genre": ["EDM"],
 		"Year": "2015"
 	}
 ]
