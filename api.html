@@ -1,0 +1,60 @@
+<html>
+<head>
+	<title>Crypto API</title>
+	<meta charset="utf-8"/>
+	<script>
+		function getBTCPrice() {
+			request = new XMLHttpRequest();
+			console.log("1 - request object created");
+  
+		request.open("GET", "https://api.coinlore.net/api/tickers/", true)
+			console.log("2 - opened request file");
+
+			request.onreadystatechange = function() {
+				console.log("3 - readystatechange event fired.");
+ 
+				if (request.readyState == 4 && request.status == 200) {
+
+					console.log("5 - response received");
+					result = request.responseText;
+					BTCPrice = JSON.parse(result);
+					
+					BTCPrice["data"].forEach(function(coin) {
+						if (coin["symbol"] == "BTC") {
+							document.getElementById("data").innerHTML ="Current price of bitcoin is: " + coin["price_usd"] + " USD"; 
+						}
+					})
+				}
+				else if (request.readyState == 4 && request.status != 200) {
+
+					document.getElementById("data").innerHTML = "Something is wrong!  Check the logs to see where this went off the rails";
+
+				}
+				else if (request.readyState == 3) {
+
+					document.getElementById("data").innerHTML = "Too soon!  Try again";
+
+				}
+			}
+
+			request.send();
+			console.log("4 - Request sent");
+		}
+	</script>
+</head>
+
+
+<body onload="getBTCPrice()">
+
+	<h1>Bitcoin Price</h1>
+	<h3>Description: </h3>
+	<p>The API I selected is a Cryptocurrency API. It lists information about all crypto coins, including symbol, name, price in usd, percent change in the past 24h...... It can display a maximum result of 100 coins per request and user can select which 100 coins they want to see by specifying the starting rank and limit in the API's URL.</p>
+	<h3>Website: </h3>
+	<p>https://www.coinlore.com/cryptocurrency-data-api</p>
+	<h3>Options needed for the API request: </h3>
+	<p>The main organization of the JSON file is with a key "data" and its value is an array of different cryptocurrencies. Each crypto object within the array has items such as "id", "symbol", "name"... After parsing the JSON string, I passed in the parameter "data" to get its value (an array of objects). I then used forEach function to iterate through each object trying to locate the object with the name equals to BTC. Once I locate the object, I used "price_usd" to get bitcoin's price.</p>
+	<h3>Two applications: </h3>
+	<p>First application: This API can be very useful for different cryptocurrency trading websites and apps. They can use this API to get the newest price points for different cryptos and also display any useful information such as the percent change in the past 24 hours to help users make investment decisions. Second application: Another use of this API can be for any online websites / companies that accept crypocurrency as a method of payment. They can list price points of the crypto coins they accept. This can help clients decide which payment method or which coin they should use to pay.</p>
+	<div id="data">Loading...</div>
+</body>
+</html>
